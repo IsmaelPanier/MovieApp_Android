@@ -11,6 +11,9 @@ import kotlinx.coroutines.launch
 
 class PopularShowsViewModel : ViewModel() {
 
+    private val _isLoading = MutableStateFlow(true)
+    val isLoading: StateFlow<Boolean> = _isLoading
+
     private val _shows = MutableStateFlow<List<PopularShow>>(emptyList())
     val shows: StateFlow<List<PopularShow>> = _shows
 
@@ -19,21 +22,38 @@ class PopularShowsViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
+            _isLoading.value = true
             try {
                 val result = useCase()
                 if (result.isEmpty()) {
-                    // fallback en cas d’erreur silencieuse
                     _shows.value = listOf(
-                        PopularShow(0, "Aucune série récupérée", "")
+                        PopularShow(
+                            id = 0,
+                            name = "Aucune série récupérée",
+                            thumbnailUrl = "",
+                            startDate = null,
+                            endDate = null,
+                            country = null,
+                            network = null
+                        )
                     )
                 } else {
                     _shows.value = result
                 }
             } catch (e: Exception) {
-                // fallback en cas d’erreur API
                 _shows.value = listOf(
-                    PopularShow(-1, "Erreur de chargement : ${e.message}", "")
+                    PopularShow(
+                        id = -1,
+                        name = "Erreur de chargement : ${e.message}",
+                        thumbnailUrl = "",
+                        startDate = null,
+                        endDate = null,
+                        country = null,
+                        network = null
+                    )
                 )
+            } finally {
+                _isLoading.value = false
             }
         }
     }
