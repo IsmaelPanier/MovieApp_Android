@@ -1,29 +1,33 @@
-# � TV Shows App [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-blue.svg?logo=kotlin)](https://kotlinlang.org) [![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.5.0-brightgreen)](https://developer.android.com/jetpack/compose)
+# 🎬 TV Shows App [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-blue.svg?logo=kotlin)](https://kotlinlang.org) [![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.5.0-brightgreen)](https://developer.android.com/jetpack/compose)
 
-Application mobile Android pour découvrir les séries TV populaires utilisant l'API Episodate, construite avec les meilleures pratiques modernes Android.
+Application mobile Android pour découvrir les séries TV populaires en utilisant l'API [Episodate](https://www.episodate.com), construite avec les meilleures pratiques modernes Android et Jetpack Compose.
 
-<p align="center">
-  <img src="https://via.placeholder.com/300x600/5C6BC0/FFFFFF?text=App+Preview" width="200" alt="App Preview">
-  <img src="https://via.placeholder.com/300x600/42A5F5/FFFFFF?text=Search+Feature" width="200" alt="Search Feature">
-</p>
+---
 
 ## 🌟 Fonctionnalités
 
 ### 🚀 Core Features
 - 📺 Liste des séries populaires avec pagination
 - 🔍 Système de recherche en temps réel
-- 🖼️ Chargement optimisé des images avec Coil
-- 📱 UI 100% Jetpack Compose + Material 3
+- 🖼️ Chargement optimisé des images avec **Coil**
+- 📱 UI 100% **Jetpack Compose** + **Material 3**
 - 💾 Architecture Clean (MVVM, Repository Pattern)
+- 🔄 Chargement dynamique avec `CircularProgressIndicator`
+- 📝 Affichage des détails enrichis (description, pays, date, chaîne TV)
+
+---
 
 ### ✨ Features Ajoutées
-| Fonctionnalité | Description | 
-|----------------|-------------|
-| **Recherche Intelligente** | Filtrage dynamique avec feedback visuel |
-| **Empty State** | Illustration personnalisée quand aucun résultat | 
-| **UI/UX Optimisée** | Animations fluides et indicateurs de chargement |
+| Fonctionnalité              | Description                                                     |
+|----------------------------|-----------------------------------------------------------------|
+| 🔍 **Recherche Intelligente** | Filtrage dynamique avec feedback visuel dans la barre supérieure |
+| ❌ **Empty State**            | Message stylé lorsqu'aucune série ne correspond à la recherche  |
+| 🎨 **UI/UX Optimisée**        | Animations fluides, transitions douces et indicateurs clairs     |
+| 📝 **Résumé des séries**      | Description textuelle intégrée dans l'écran de détails           |
 
-## � Architecture
+---
+
+## 🧱 Architecture
 
 ```plaintext
 tvshows/
@@ -40,6 +44,42 @@ tvshows/
     ├── ui/             # Composables
     └── viewmodel/      # ViewModels
 
-```
-📁 tvshows │ ├── data │ ├── dto │ ├── api │ └── repository │ ├── domain │ ├── model │ └── usecase │ └── presentation ├── ui (PopularShowsScreen) └── viewmodel
+tvshows_details/
+├── data/
+│   ├── api/            # API de détails (show-details)
+│   ├── repository/
+│   └── dto/
+│
+├── domain/
+│   ├── model/
+│   └── usecase/
+│
+└── presentation/
+    ├── ui/             # Écran de détails d'une série
+    └── viewmodel/
 
+```
+### 🛠 Technologies clés
+
+* **Langage** :  🛠️ Kotlin
+* **UI** : 🎨  Jetpack Compose, Material 3
+* **Architecture**  🧱: Clean Architecture + MVVM
+* **Networking** : Retrofit, Gson
+* **Async** : Coroutines, StateFlow
+* **Image Loading** : Coil
+
+
+### Développé par 
+
+* **Ismael Panier** 
+* **Senthooran Thayaparan**   
+* **Abdoulaye Wane**
+
+### 📦 Prochaines améliorations possibles
+
+* **⭐ Système de favoris**
+* **Mode sombre / clair** 
+* **Swipe-to-refresh** 
+* **🎯 Filtrage par pays ou statut**
+* **Pagination API côté détail**
+* **📽️ Démo vidéo ou capture animée**
