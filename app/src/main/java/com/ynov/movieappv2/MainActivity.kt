@@ -5,12 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.ynov.movieappv2.tvshows.presentation.ui.popular.PopularShowsScreen
+import com.ynov.movieappv2.tvshow_details.presentation.ui.details.ShowDetailsScreen
 import com.ynov.movieappv2.ui.theme.MovieAppV2Theme
 
 class MainActivity : ComponentActivity() {
@@ -19,30 +21,23 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MovieAppV2Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = "popular") {
+                        composable("popular") {
+                            PopularShowsScreen(
+                                onShowClick = { showId ->
+                                    navController.navigate("details/$showId")
+                                }
+                            )
+                        }
+                        composable("details/{showId}") { backStackEntry ->
+                            val showId = backStackEntry.arguments?.getString("showId")?.toIntOrNull() ?: return@composable
+                            ShowDetailsScreen(showId = showId)
+                        }
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier,age: Int = 0) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-//@Preview(showBackground = true)
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MovieAppV2Theme {
-        Greeting("Android")
     }
 }
