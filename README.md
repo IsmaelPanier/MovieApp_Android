@@ -2,7 +2,7 @@
 
 Application mobile Android pour découvrir les séries TV populaires en utilisant l'API [Episodate](https://www.episodate.com), construite avec les meilleures pratiques modernes Android et Jetpack Compose.
 
----
+----
 
 ## 🌟 Fonctionnalités
 
