@@ -81,5 +81,4 @@ tvshows_details/
 * **Mode sombre / clair** 
 * **Swipe-to-refresh** 
 * **🎯 Filtrage par pays ou statut**
-* **Pagination API côté détail**
-* **📽️ Démo vidéo ou capture animée**
+
