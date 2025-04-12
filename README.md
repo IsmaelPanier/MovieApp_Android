@@ -1,4 +1,4 @@
-# � TV Shows App [![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-blue.svg?logo=kotlin)](https://kotlinlang.org) [![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.5.0-brightgreen)](https://developer.android.com/jetpack/compose)
+# � TV Shows App [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-blue.svg?logo=kotlin)](https://kotlinlang.org) [![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.5.0-brightgreen)](https://developer.android.com/jetpack/compose)
 
 Application mobile Android pour découvrir les séries TV populaires utilisant l'API Episodate, construite avec les meilleures pratiques modernes Android.
 
@@ -39,3 +39,7 @@ tvshows/
 └── presentation/       # UI Layer
     ├── ui/             # Composables
     └── viewmodel/      # ViewModels
+
+```
+📁 tvshows │ ├── data │ ├── dto │ ├── api │ └── repository │ ├── domain │ ├── model │ └── usecase │ └── presentation ├── ui (PopularShowsScreen) └── viewmodel
+
